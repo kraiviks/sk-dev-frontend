@@ -1,0 +1,61 @@
+import {
+	SiHtml5,
+	SiCss3,
+	SiJavascript,
+	SiTypescript,
+	SiReact,
+	SiNextdotjs,
+	SiVuedotjs,
+	SiTailwindcss,
+	SiSass,
+	SiNestjs,
+	SiNuxtdotjs,
+	SiRedux,
+	SiJquery,
+	SiGit,
+	SiDocker,
+	SiGithub,
+} from 'react-icons/si';
+
+export const SKILLS = [
+	{ name: 'HTML', icon: <SiHtml5 size={64} />, color: '#E34F26' },
+	{ name: 'CSS', icon: <SiCss3 size={64} />, color: '#1572B6' },
+	{ name: 'SASS', icon: <SiSass size={64} />, color: '#CD6799' },
+	{ name: 'Tailwind', icon: <SiTailwindcss size={64} />, color: '#38BDF8' },
+	{
+		name: 'JavaScript',
+		icon: <SiJavascript size={64} />,
+		color: '#F0DB4F',
+	},
+	{
+		name: 'TypeScript',
+		icon: <SiTypescript size={64} />,
+		color: '#3178C6',
+	},
+	{ name: 'React', icon: <SiReact size={64} />, color: '#61DBFB' },
+	{
+		name: 'Next.js',
+		icon: <SiNextdotjs size={64} />,
+		color: '#000000',
+	},
+	{ name: 'Vue', icon: <SiVuedotjs size={64} />, color: '#41B883' },
+	{
+		name: 'Nuxt.js',
+		icon: <SiNuxtdotjs size={64} />,
+		color: '#41B883',
+	},
+	{ name: 'Nest', icon: <SiNestjs size={64} />, color: '#E0234E' },
+	{
+		name: 'JQuery',
+		icon: <SiJquery size={64} />,
+		color: '#0769AD',
+	},
+	{ name: 'Redux', icon: <SiRedux size={64} />, color: '#764ABC' },
+	{ name: 'Git', icon: <SiGit size={64} />, color: '#F05032' },
+	{ name: 'GitHub', icon: <SiGithub size={64} />, color: '#000000' },
+	{
+		name: 'Docker',
+		icon: <SiDocker size={64} />,
+		color: '#0DB7ED',
+	},
+];

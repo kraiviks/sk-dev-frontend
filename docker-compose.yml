@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ./
+    restart: always
+    command: yarn dev
+    env_file:
+      - .env
+    environment:
+      #if you’re using Windows, you may need to uncomment the next line
+      - WATCHPACK_POLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true

@@ -1,0 +1,33 @@
+/* General style for the toolbar */
+.toolbar {
+	background-color: #333; /* Change background color */
+	border-radius: 4px;     /* Add border radius */
+	padding: 8px;           /* Add padding */
+	display: flex;          /* Use flexbox for element arrangement */
+	align-items: center;    /* Center elements vertically */
+	justify-content: space-between; /* Space elements evenly */
+	gap: 4px;
+}
+
+/* Style for the copy to clipboard button */
+.copy-to-clipboard-button {
+	padding: 4px 8px !important;      /* Custom padding */
+}
+
+.copy-to-clipboard-button:hover {
+	background-color: #797976 !important; /* Custom background color on hover */
+}
+
+/* Style for the language indicator text */
+.toolbar-item span {
+	color: #f8f8f2 !important;         /* Custom text color */
+	font-size: 14px !important;       /* Custom font size for language indicator */
+	padding: 2px 4px !important;
+	background: none !important;
+	box-shadow: none !important;
+}
+
+.toolbar-item span:hover {
+	color: #f8f8f2 !important;            /* Custom text color on hover */
+}
+
