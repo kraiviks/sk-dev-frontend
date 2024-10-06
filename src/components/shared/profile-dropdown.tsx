@@ -48,7 +48,9 @@ export function ProfileDropdown() {
 					{authStore.accessToken ? (
 						<div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
 							<User className="text-black dark:text-white" />
-							<span>{user.username}</span>
+							<div className="truncate max-w-[100px]" title={user.username}>
+								{user.username}
+							</div>
 						</div>
 					) : (
 						<UserMinus2 className="text-black dark:text-white" />
