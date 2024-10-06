@@ -9,10 +9,10 @@ import Link from 'next/link';
 export const SectionBlog = (): React.ReactElement => {
 	return (
 		<section className="flex items-center justify-center h-screen">
-			<Container className="flex flex-col justify-center text-white py-12 w-full">
+			<Container className="flex flex-col justify-center w-full py-12 text-white">
 				{/* Blog Header */}
 				<div className="flex flex-col items-center justify-center mb-10">
-					<div className="flex justify-center items-center w-max space-x-2 mb-2 relative">
+					<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
 						<AnimatedLine />
 						<h2 className="text-5xl font-bold text-brand !ml-0">
 							<YAnimation>Blog</YAnimation>
@@ -28,7 +28,7 @@ export const SectionBlog = (): React.ReactElement => {
 						My thoughts on technology and business
 					</motion.p>
 				</div>
-				<div className=" py-16 w-full">
+				<div className="w-full">
 					<ArticleList type={ListViewType.LIST} max={2} />
 				</div>
 
