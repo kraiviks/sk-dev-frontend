@@ -21,6 +21,7 @@ export const SectionBlog = (): React.ReactElement => {
 					<motion.p
 						className="text-lg text-gray-400"
 						whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
+						viewport={{ once: true }}
 						transition={{
 							duration: 1,
 						}}

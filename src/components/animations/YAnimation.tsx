@@ -20,6 +20,7 @@ export const YAnimation = ({
 					key={index}
 					initial={{ y: yOffset, opacity: 0 }}
 					whileInView={{ y: 0, opacity: 1 }}
+					viewport={{ once: true }}
 					transition={{
 						type: 'spring',
 						stiffness: 200,
@@ -42,6 +43,7 @@ export const YAnimation = ({
 				key={index}
 				initial={{ y: yOffset, opacity: 0 }}
 				whileInView={{ y: 0, opacity: 1 }}
+				viewport={{ once: true }}
 				transition={{
 					type: 'spring',
 					stiffness: 100,

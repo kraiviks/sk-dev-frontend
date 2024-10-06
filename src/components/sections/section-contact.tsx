@@ -23,6 +23,7 @@ export const SectionContact = (): React.ReactElement => {
 							className="text-brand font-medium text-3xl border-brand w-max py-4 px-10 border-4 rounded-tl-3xl rounded-br-3xl mb-16"
 							initial={{ opacity: 0, y: -300, scale: 0 }}
 							whileInView={{ opacity: 1, y: 0, scale: 1 }}
+							viewport={{ once: true }}
 							transition={{
 								duration: 1,
 								delay: 0.3,

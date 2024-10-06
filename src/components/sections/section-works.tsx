@@ -21,6 +21,7 @@ export const SectionWorks = () => {
 					<motion.p
 						className="text-lg text-gray-400"
 						whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
+						viewport={{ once: true }}
 						transition={{
 							duration: 1.5,
 						}}
@@ -36,8 +37,9 @@ export const SectionWorks = () => {
 							key={work.title}
 							className={`flex items-center min-w-[380px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
 							whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
+							viewport={{ once: true }}
 							transition={{
-								delay: index * 0.5,
+								delay: index * 0.3,
 							}}
 						>
 							<div className="relative z-10 min-w-[180px] h-[180px]">
