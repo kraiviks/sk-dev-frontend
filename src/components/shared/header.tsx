@@ -4,8 +4,8 @@ import { cn } from '@/lib/utils';
 import { Container, ModeToggle, Logo } from '@/components/shared';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { ProfileDropdown } from './profile-dropdown';
-
 interface Props {
 	className?: string;
 }
@@ -31,17 +31,22 @@ export const Header: React.FC<Props> = ({ className }) => {
 	}
 
 	return (
-		<header
+		<motion.header
 			className={cn(
-				'h-20 flex justify-center items-center shadow-sm shadow-gray-400 fixed top-0 left-0 right-0 z-50',
+				'h-20 flex justify-center items-center border-b border-gray-400 fixed top-0 left-0 right-0 z-50',
 				className
 			)}
+			initial={{ opacity: 0, y: -100 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -100 }}
+			transition={{ duration: 0.5 }}
 		>
 			<Container className="flex items-center justify-between flex-1">
 				<div className="flex gap-3 items-center">
 					<Logo />
 				</div>
-				<div className="flex gap-3 items-center">
+
+				<div className="flex gap-3 items-center flex-1 justify-center">
 					{ROUTES.map((route) => (
 						<Link
 							key={route.label}
@@ -55,11 +60,12 @@ export const Header: React.FC<Props> = ({ className }) => {
 						</Link>
 					))}
 				</div>
-				<div className="flex gap-3 items-center">
+
+				<div className="flex gap-3 justify-center items-center min-w-[200px]">
 					<ModeToggle />
 					<ProfileDropdown />
 				</div>
 			</Container>
-		</header>
+		</motion.header>
 	);
 };
