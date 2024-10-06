@@ -7,7 +7,7 @@ import * as motion from 'framer-motion/client';
 import {
 	BriefcaseIcon,
 	DownloadIcon,
-	LinkIcon,
+	LinkedinIcon,
 	MailIcon,
 	MapPinIcon,
 } from 'lucide-react';
@@ -73,12 +73,12 @@ export const Profile = ({ className }: { className?: string }) => {
 					<BriefcaseIcon size={16} className="text-brand" /> Full-time
 				</li>
 				<li className="flex items-center gap-3 text-sm">
-					<LinkIcon size={16} className="text-brand" />{' '}
+					<LinkedinIcon size={16} className="text-brand" />{' '}
 					<Link
 						href="https://www.linkedin.com/in/serhii-kostiv/"
 						target="_blank"
 					>
-						linkedin
+						serhii-kostiv
 					</Link>
 				</li>
 			</ul>
