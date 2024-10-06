@@ -14,7 +14,7 @@ import {
 	MailIcon,
 	EditIcon,
 	ComputerIcon,
-	BookHeartIcon
+	BookHeartIcon,
 } from 'lucide-react';
 import { Fragment, useEffect, useState } from 'react';
 import { useWindowSize } from 'react-use';
@@ -41,17 +41,11 @@ export const Fullpage = ({
 
 	useEffect(() => {
 		const isDesktop = windowSize.width >= 1090 && windowSize.height >= 720;
-		setDisabledFullPage(isDesktop);
+
+		setDisabledFullPage(isDesktop ? false : true);
 	}, [windowSize, disabledFullPage]);
 
-
 	return !disabledFullPage ? (
-		<div className="flex flex-col">
-			{sections.map((section, index) => (
-				<Fragment key={index}>{section}</Fragment>
-			))}
-		</div>
-	) : (
 		<Swiper
 			simulateTouch={false}
 			direction={'vertical'}
@@ -76,7 +70,11 @@ export const Fullpage = ({
 						case 3:
 							return renderPaginationIcon(<ComputerIcon />, 'Works', className);
 						case 4:
-							return renderPaginationIcon(<BookHeartIcon />, 'Pet Projects', className);
+							return renderPaginationIcon(
+								<BookHeartIcon />,
+								'Pet Projects',
+								className
+							);
 						case 5:
 							return renderPaginationIcon(<EditIcon />, 'Blog', className);
 						case 6:
@@ -93,5 +91,11 @@ export const Fullpage = ({
 				<SwiperSlide key={index}>{section}</SwiperSlide>
 			))}
 		</Swiper>
+	) : (
+		<div className="flex flex-col">
+			{sections.map((section, index) => (
+				<Fragment key={index}>{section}</Fragment>
+			))}
+		</div>
 	);
 };
