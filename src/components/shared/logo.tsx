@@ -1,24 +1,7 @@
-'use client';
-import { motion } from 'framer-motion';
-
+import * as motion from 'framer-motion/client';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
-interface Props {
-	className?: string;
-}
-
-export const Logo: React.FC<Props> = ({ className }) => {
-	const { resolvedTheme } = useTheme();
-	const [color, setColor] = useState('black');
-
-	useEffect(() => {
-		if (resolvedTheme) {
-			setColor(resolvedTheme === 'dark' ? 'white' : 'black');
-		}
-	}, [resolvedTheme]);
-
+export const Logo: React.FC = () => {
 	return (
 		<Link href="/">
 			<div className="flex items-center text-3xl font-moto">
