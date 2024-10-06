@@ -56,7 +56,7 @@ export const Fullpage = ({
 			simulateTouch={false}
 			direction={'vertical'}
 			slidesPerView={1}
-			speed={1000}
+			speed={600}
 			mousewheel={true}
 			onSlideChange={(swiper) => triggerActiveClass(swiper.activeIndex)}
 			pagination={{

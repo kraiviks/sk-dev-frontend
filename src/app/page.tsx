@@ -11,13 +11,13 @@ import {
 import { AnimationProvider } from '@/contexts/AnimationContext';
 
 const sections = [
-	<SectionMain key="1" />,
-	<SectionAbout key="2" />,
-	<SectionSkills key="3" />,
-	<SectionWorks key="4" />,
-	<SectionPersonalProjects key="5" />,
-	<SectionBlog key="6" />,
-	// <SectionContact key="7" />,
+	<SectionMain key="main" />,
+	<SectionAbout key="about" />,
+	<SectionSkills key="skills" />,
+	<SectionWorks key="works" />,
+	<SectionPersonalProjects key="personal-projects" />,
+	<SectionBlog key="blog" />,
+	// <SectionContact key="contact" />,
 ];
 
 export default function Home() {

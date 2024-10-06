@@ -7,12 +7,12 @@ import Link from 'next/link';
 
 export const SectionWorks = () => {
 	return (
-		<section className="relative flex items-center ttbg-[url('/images/works-bg.jpg')] bg-cover bg-center">
-			<div className="absolute inset-0 bg-emerald-900 bg-opacity-10 backdrop-blur-sm z-10"></div>
-			<div className="flex flex-col items-center justify-center w-full text-white min-h-screen py-12 z-20">
+		<section className="relative flex items-center">
+			<div className="absolute inset-0 z-10 bg-slate"></div>
+			<div className="z-20 flex flex-col items-center justify-center w-full min-h-screen py-12 text-white">
 				{/* Works Header */}
 				<div className="flex flex-col items-center justify-center mb-10">
-					<div className="flex justify-center items-center w-max space-x-2 mb-2 relative">
+					<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
 						<h2 className="text-5xl font-bold text-brand !ml-0">
 							<YAnimation>Works</YAnimation>
 							<AnimatedLine />
@@ -30,18 +30,18 @@ export const SectionWorks = () => {
 				</div>
 
 				{/* Works */}
-				<motion.div className="flex flex-wrap justify-center gap-8 max-w-screen-xl w-full">
+				<div className="flex flex-wrap justify-center w-full max-w-screen-xl gap-8">
 					{WORKS.map((work, index) => (
 						<motion.div
-							key={index}
+							key={work.title}
 							className={`flex items-center min-w-[380px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
 							whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 							transition={{
-								delay: index * 0.4,
+								delay: index * 0.5,
 							}}
 						>
 							<div className="relative z-10 min-w-[180px] h-[180px]">
-								<div className="flex justify-center items-center absolute group-hover:opacity-100 opacity-0 bg-black bg-opacity-60 top-0 left-0 w-full h-full z-20 transition-all">
+								<div className="absolute top-0 left-0 z-20 flex items-center justify-center w-full h-full transition-all bg-black opacity-0 group-hover:opacity-100 bg-opacity-60">
 									<Modal
 										title={work.title}
 										desctiption={work.description}
@@ -49,11 +49,11 @@ export const SectionWorks = () => {
 										buttonVariant="link"
 										buttonClassName="text-brand font-bold text-xs"
 									>
-										<ul className="flex items-center justify-center flex-wrap gap-3">
+										<ul className="flex flex-wrap items-center justify-center gap-3">
 											{work.technologies.map((tech, index) => (
 												<li
 													key={index}
-													className="text-brand border-brand border-2 uppercase p-2"
+													className="p-2 uppercase border-2 text-brand border-brand"
 												>
 													<YAnimation>{tech}</YAnimation>
 												</li>
@@ -71,7 +71,7 @@ export const SectionWorks = () => {
 							<Link
 								href={work.href}
 								target="_blank"
-								className="flex items-center w-full h-full pl-7 text-xl relative overflow-hidden"
+								className="relative flex items-center w-full h-full overflow-hidden text-xl pl-7"
 							>
 								<div className="absolute -left-[70%]  -bottom-[80%] group:hover:-left-[105%] group-hover:-bottom-[110%] rotate-45 bg-white bg-opacity-50 w-52 h-52 transition-all"></div>
 								<div className="absolute -right-[60%] -bottom-[70%] group:hover:-right-[105%] group-hover:-bottom-[110%] rotate-45 bg-slate-600 w-52 h-52 opacity-50 transition-all"></div>
@@ -79,7 +79,7 @@ export const SectionWorks = () => {
 							</Link>
 						</motion.div>
 					))}
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	);
