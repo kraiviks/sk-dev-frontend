@@ -4,16 +4,10 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 export function ModeToggle() {
 	const [mounted, setMounted] = useState(false);
-	const { setTheme } = useTheme();
+	const { setTheme, theme } = useTheme();
 
 	useEffect(() => {
 		setMounted(true);
@@ -21,26 +15,15 @@ export function ModeToggle() {
 
 	if (!mounted) return null;
 
+	const isDark = theme === 'dark';
+
 	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button variant={null} size="icon">
-					<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-black" />
-					<Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-					<span className="sr-only">Toggle theme</span>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
-				<DropdownMenuItem onClick={() => setTheme('system')}>
-					System
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('light')}>
-					Light
-				</DropdownMenuItem>
-				<DropdownMenuItem onClick={() => setTheme('dark')}>
-					Dark
-				</DropdownMenuItem>
-			</DropdownMenuContent>
-		</DropdownMenu>
+		<Button
+			className="cursor-pointer select-none"
+			variant="ghost"
+			onClick={() => setTheme(isDark ? 'light' : 'dark')}
+		>
+			{isDark ? <Moon size={16} /> : <Sun size={16} className="text-black" />}
+		</Button>
 	);
 }
