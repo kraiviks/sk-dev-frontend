@@ -50,7 +50,7 @@ const LoginForm = () => {
 	}, [authStore.accessToken]);
 
 	return (
-		<div className="flex gap-5 justify-end h-screen bg-[url('/images/bg-login.png')] bg-cover bg-center">
+		<div className="flex gap-5 justify-end h-screen bg-[url('/images/bg-login.jpg')] bg-cover bg-center">
 			<div className="flex justify-center items-center w-full lg:w-1/2">
 				<div className="bg-slate-800 bg-opacity-50 backdrop-blur p-10 sm:p-20 mg:p-10 lg:p-36">
 					<form
