@@ -1,5 +1,5 @@
 import * as motion from 'framer-motion/client';
-import { Modal } from '../shared';
+import { Description, Modal } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 import { WORKS } from '@/data';
 import Image from 'next/image';
@@ -18,16 +18,7 @@ export const SectionWorks = () => {
 							<AnimatedLine />
 						</h2>
 					</div>
-					<motion.p
-						className="text-lg text-gray-400"
-						whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
-						viewport={{ once: true }}
-						transition={{
-							duration: 1.5,
-						}}
-					>
-						I had the pleasure of working with these awesome projects
-					</motion.p>
+					<Description text='I had the pleasure of working with these awesome projects'/>
 				</div>
 
 				{/* Works */}

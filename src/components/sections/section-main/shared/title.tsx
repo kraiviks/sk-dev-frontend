@@ -9,7 +9,7 @@ export const Title = ({
 	className?: string;
 }): React.ReactElement => {
 	return (
-		<motion.h1
+		<motion.h2
 			className={cn(
 				'flex justify-center text-5xl font-bold text-center item lg:text-7xl xl:text-7xl text-brandForeground',
 				className
@@ -73,6 +73,6 @@ export const Title = ({
 					{'</Title>'}
 				</motion.div>
 			</motion.div>
-		</motion.h1>
+		</motion.h2>
 	);
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Container, ModeToggle, Logo } from '@/components/shared';
+import { Container, ModeToggle, Logo, Sidebar } from '@/components/shared';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -46,7 +46,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 					<Logo />
 				</div>
 
-				<div className="flex gap-3 items-center flex-1 justify-center">
+				<div className="hidden sm:flex gap-3 items-center flex-1 justify-center">
 					{ROUTES.map((route) => (
 						<Link
 							key={route.label}
@@ -61,9 +61,12 @@ export const Header: React.FC<Props> = ({ className }) => {
 					))}
 				</div>
 
-				<div className="flex gap-3 justify-center items-center min-w-[200px]">
-					<ModeToggle />
-					<ProfileDropdown />
+				<div className="flex gap-3 justify-center items-center">
+					<div className="hidden gap-3 justify-center items-center min-w-[200px] sm:flex">
+						<ModeToggle />
+						<ProfileDropdown />
+					</div>
+					<Sidebar routes={ROUTES}/>
 				</div>
 			</Container>
 		</motion.header>

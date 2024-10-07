@@ -1,6 +1,6 @@
 import * as motion from 'framer-motion/client';
 import React from 'react';
-import { ArticleList, Container } from '../shared';
+import { ArticleList, Container, Description } from '../shared';
 import { Button } from '../ui/button';
 import { ListViewType } from '@/types';
 import { AnimatedLine, YAnimation } from '../animations';
@@ -18,16 +18,7 @@ export const SectionBlog = (): React.ReactElement => {
 							<YAnimation>Blog</YAnimation>
 						</h2>
 					</div>
-					<motion.p
-						className="text-lg text-gray-400"
-						whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
-						viewport={{ once: true }}
-						transition={{
-							duration: 1,
-						}}
-					>
-						My thoughts on technology and business
-					</motion.p>
+					<Description text="My thoughts on technology and business" />
 				</div>
 				<div className="w-full">
 					<ArticleList type={ListViewType.LIST} max={2} />

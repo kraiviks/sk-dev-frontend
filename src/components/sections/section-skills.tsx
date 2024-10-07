@@ -1,11 +1,11 @@
 import * as motion from 'framer-motion/client';
-import { Container } from '../shared';
+import { Container, Description } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 import { SKILLS } from '@/data';
 
 export const SectionSkills = (): React.ReactElement => {
 	return (
-		<section className="relative flex items-center h-screen">
+		<section className="relative flex items-center min-h-720:h-screen">
 			<Container className="flex gap-32 justify-between z-20">
 				<div className="flex flex-col justify-center text-white min-h-screen py-12">
 					{/* Skills Header */}
@@ -16,16 +16,7 @@ export const SectionSkills = (): React.ReactElement => {
 							</h2>
 							<AnimatedLine />
 						</div>
-						<motion.p
-							className="text-lg text-gray-400"
-							whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
-							viewport={{ once: true }}
-							transition={{
-								duration: 1,
-							}}
-						>
-							I am striving to never stop learning and improving
-						</motion.p>
+						<Description text="I am striving to never stop learning and improving" />
 					</div>
 
 					{/* Skills Icons */}

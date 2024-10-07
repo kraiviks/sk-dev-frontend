@@ -6,7 +6,7 @@ export const Logo: React.FC = () => {
 		<Link href="/">
 			<div className="flex items-center text-3xl font-moto">
 				<motion.div
-					initial={{ opacity: 0, x: -100 }}
+					initial={{ opacity: 0, x: -30 }}
 					whileInView={{ opacity: 1, x: 0 }}
 					transition={{
 						type: 'spring',
@@ -44,7 +44,7 @@ export const Logo: React.FC = () => {
 					.DEV
 				</motion.div>
 				<motion.div
-					initial={{ opacity: 0, x: 100 }}
+					initial={{ opacity: 0, x: 30 }}
 					whileInView={{ opacity: 1, x: 0 }}
 					transition={{
 						type: 'spring',

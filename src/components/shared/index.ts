@@ -14,3 +14,5 @@ export { CustomTooltip } from './custom-tooltip';
 export { AnimatedSpan } from './animated-span';
 export { CreateArticleLink } from './create-article-link';
 export { EditArticleLink } from './edit-article-link';
+export { Description } from './description';
+export { Sidebar } from './sidebar';

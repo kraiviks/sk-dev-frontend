@@ -23,7 +23,7 @@ export const MainText = ({ text }: { text: TextProps[] }) => {
 			>
 				{'<h1>'}
 			</motion.span>
-			<h1 className="m-0 ml-5 text-xl md:text-4xl font-bold lg:text-6xl">
+			<h1 className="m-0 ml-5 text-3xl md:text-4xl font-bold lg:text-6xl">
 				{text.map((part, index) => {
 					const Tag = part.wrap ? 'span' : 'p';
 					return (

@@ -1,5 +1,5 @@
 import * as motion from 'framer-motion/client';
-import { Logo, Modal } from '../shared';
+import { Description, Logo, Modal } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 import { PERSONAL_PROJECTS } from '@/data';
 import Image from 'next/image';
@@ -19,17 +19,10 @@ export const SectionPersonalProjects = () => {
 							<YAnimation>Personal projects</YAnimation>
 						</h2>
 					</div>
-					<motion.p
-						className="text-lg text-gray-400"
-						whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
-						viewport={{ once: true }}
-						transition={{
-							duration: 1.5,
-						}}
-					>
-						I explore new technologies and ideas in my personal projects,
-						pushing my skills further.
-					</motion.p>
+					<Description
+						text="I explore new technologies and ideas in my personal projects,
+						pushing my skills further."
+					/>
 				</div>
 
 				{/* PERSONAL_PROJECTS */}

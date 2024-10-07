@@ -8,19 +8,16 @@ import {
 	Title,
 	InfoList,
 } from './shared';
+import Scroll from '@/components/ui/scroll';
 
 export const SectionMain = () => {
 	return (
-		<section className="flex sm:flex-col sm:justify-center min-h-720:h-screen pt-28 pb-10 overflow-hidden">
+		<section className="relative flex justify-center items-center h-screen pt-10 pb-10 overflow-hidden">
 			<Container className="flex flex-col w-full px-16">
-				<Title text="Developer" />
 				<div className="flex flex-col sm:flex-row items-center sm:justify-between gap-10 sm:gap-20">
-					{/* Left */}
-
-					<Profile className="order-2 sm:order-1" />
-
 					{/* Center */}
-					<div className="flex flex-col w-full gap-7 order-1: sm:order-2">
+					<div className="flex flex-col items-center w-full gap-7">
+						{/* <Title text="Developer" /> */}
 						<MainText
 							text={[
 								{
@@ -47,6 +44,7 @@ export const SectionMain = () => {
 					{/* <InfoList className="order-3 max-w-full" /> */}
 				</div>
 			</Container>
+			<Scroll className="absolute bottom-[5%] left-[50%] right-[50%] -translate-x[50%]" />
 		</section>
 	);
 };

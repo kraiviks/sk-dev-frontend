@@ -1,18 +1,16 @@
 import * as motion from 'framer-motion/client';
 import Image from 'next/image';
 import { AnimatedSpan, Container } from '../shared';
+import { Profile } from './section-main/shared';
 
 export const SectionAbout = (): React.ReactElement => {
 	return (
-		<section
-			key="2"
-			className="flex items-center bg-[url('/images/about-me-bg.svg')] bg-cover bg-center h-screen"
-		>
-			<Container className="flex gap-32 justify-between">
-				<div className="flex flex-col gap-16 max-w-[880px]">
+		<section className="flex items-center bg-[url('/images/about-me-bg.svg')] bg-cover bg-center min-h-720:h-screen">
+			<Container className="flex flex-col min-h-720:flex-row items-center gap-32 justify-between">
+				<div className="flex flex-col gap-16 max-w-[880px] items-center">
 					<motion.h2
 						className="text-5xl border-brand w-max py-4 px-10 border-4 rounded-tl-3xl rounded-br-3xl"
-						whileInView={{ x: [-300, 0], scale: [0.3, 1] }}
+						whileInView={{  scaleX: [0.3, 1] }}
 						transition={{
 							type: 'spring',
 							stiffness: 100,
@@ -32,6 +30,7 @@ export const SectionAbout = (): React.ReactElement => {
 						className="bg-background py-6 px-10 rounded-xl"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
+						viewport={{ once: true }}
 						transition={{
 							type: 'spring',
 							stiffness: 100,
@@ -104,26 +103,7 @@ export const SectionAbout = (): React.ReactElement => {
 						</motion.div>
 					</motion.div>
 				</div>
-				<motion.div
-					className="w-[462px] h-[556px]"
-					initial={{ opacity: 0, scale: 0.8, x: 100 }}
-					whileInView={{ opacity: 1, scale: 1, x: 0 }}
-					transition={{
-						type: 'spring',
-						stiffness: 100,
-						damping: 20,
-						duration: 0.8,
-						delay: 0.5,
-					}}
-				>
-					<Image
-						src="/images/about-img.png"
-						alt="About me image"
-						width={462}
-						height={556}
-						className="!w-[462px] !h-[556px] max-w-max"
-					/>
-				</motion.div>
+				<Profile />
 			</Container>
 		</section>
 	);
