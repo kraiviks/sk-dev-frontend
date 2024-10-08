@@ -14,6 +14,12 @@ import {
 import Link from 'next/link';
 
 export const Profile = ({ className }: { className?: string }) => {
+	const allSkills = [
+		...SKILLS.frontend,
+		...SKILLS.backend,
+		...SKILLS.mobile,
+		...SKILLS.tools,
+	];
 	return (
 		<motion.div
 			className={cn(
@@ -83,7 +89,7 @@ export const Profile = ({ className }: { className?: string }) => {
 				</li>
 			</ul>
 			<div className="flex flex-wrap gap-2 mt-4">
-				{SKILLS.map((skill) => (
+				{allSkills.map((skill) => (
 					<Badge key={skill.name} className="bg-brand hover:text-white">
 						{skill.name}
 					</Badge>
