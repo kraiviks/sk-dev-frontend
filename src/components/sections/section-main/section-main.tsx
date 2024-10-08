@@ -4,9 +4,6 @@ import {
 	MainParagraph,
 	MainButton,
 	MainText,
-	Profile,
-	Title,
-	InfoList,
 } from './shared';
 import Scroll from '@/components/ui/scroll';
 
