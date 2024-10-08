@@ -11,8 +11,8 @@ import {
 import { AnimationProvider } from '@/contexts/AnimationContext';
 
 const sections = [
-	<SectionMain key="main" />,
-	<SectionAbout key="about" />,
+	// <SectionMain key="main" />,
+	// <SectionAbout key="about" />,
 	<SectionSkills key="skills" />,
 	<SectionWorks key="works" />,
 	<SectionPersonalProjects key="personal-projects" />,

@@ -6,11 +6,11 @@ import { Profile } from './section-main/shared';
 export const SectionAbout = (): React.ReactElement => {
 	return (
 		<section className="flex items-center bg-[url('/images/about-me-bg.svg')] bg-cover bg-center min-h-720:h-screen">
-			<Container className="flex flex-col min-h-720:flex-row items-center gap-32 justify-between">
+			<Container className="flex flex-col items-center justify-between gap-32 min-h-720:flex-row">
 				<div className="flex flex-col gap-16 max-w-[880px] items-center">
 					<motion.h2
-						className="text-5xl border-brand w-max py-4 px-10 border-4 rounded-tl-3xl rounded-br-3xl"
-						whileInView={{  scaleX: [0.3, 1] }}
+						className="px-10 py-4 text-5xl border-4 border-brand w-max rounded-tl-3xl rounded-br-3xl"
+						whileInView={{ scaleX: [0.3, 1] }}
 						transition={{
 							type: 'spring',
 							stiffness: 100,
@@ -27,7 +27,7 @@ export const SectionAbout = (): React.ReactElement => {
 						</motion.span>
 					</motion.h2>
 					<motion.div
-						className="bg-background py-6 px-10 rounded-xl"
+						className="px-10 py-6 bg-background rounded-xl"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
@@ -53,9 +53,9 @@ export const SectionAbout = (): React.ReactElement => {
 						</motion.div>
 						<div className="ml-5">
 							<motion.p
-								className="text-brand text-3xl"
-								initial={{ opacity: 0, x: 100, y: -100 }}
-								whileInView={{ opacity: 1, x: 0, y: 0 }}
+								className="text-3xl text-brand"
+								initial={{ opacity: 0, y: -100 }}
+								whileInView={{ opacity: 1, y: 0 }}
 								transition={{
 									type: 'spring',
 									stiffness: 100,

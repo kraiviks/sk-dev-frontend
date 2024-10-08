@@ -5,11 +5,11 @@ import { SKILLS } from '@/data';
 export const SectionSkills = (): React.ReactElement => {
 	return (
 		<section className="relative flex items-center min-h-720:lg:h-screen">
-			<Container className="flex gap-32 justify-between z-20">
-				<div className="flex flex-col justify-center text-white min-h-screen py-12">
+			<Container className="z-20 flex justify-between gap-32">
+				<div className="flex flex-col justify-center min-h-screen py-12 text-white">
 					{/* Skills Header */}
 					<div className="flex flex-col items-center justify-center mb-10">
-						<div className="flex justify-center items-center w-max space-x-2 mb-2 relative">
+						<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
 							<h2 className="text-5xl font-bold text-brand !ml-0">
 								<YAnimation>Skills</YAnimation>
 							</h2>
@@ -19,11 +19,15 @@ export const SectionSkills = (): React.ReactElement => {
 					</div>
 
 					{/* Skills Icons */}
-					<div className="flex justify-center gap-10 flex-wrap">
-						<SkillsBox title="Frontend" skills={SKILLS.frontend} />
-						<SkillsBox title="Backend" skills={SKILLS.backend} />
-						<SkillsBox title="Mobile" skills={SKILLS.mobile} />
-						<SkillsBox title="Tools" skills={SKILLS.tools} />
+					<div className="flex flex-wrap justify-center gap-10">
+						{Object.keys(SKILLS).map((key, index) => (
+							<SkillsBox
+								key={key}
+								delay={index * 0.5}
+								title={key.charAt(0).toUpperCase() + key.slice(1)}
+								skills={SKILLS[key as keyof typeof SKILLS]}
+							/>
+						))}
 					</div>
 				</div>
 			</Container>

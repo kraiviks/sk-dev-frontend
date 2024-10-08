@@ -19,7 +19,7 @@ export default async function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={fonts.nunito.className}>
 				<Providers>
-					<Header />
+					<Header className='w-screen'/>
 					{children}
 				</Providers>
 			</body>

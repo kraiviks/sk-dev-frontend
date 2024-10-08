@@ -14,11 +14,13 @@ type ActiveSkillData = {
 type Props = {
 	title?: string;
 	skills: SkillInterface[];
+	delay?: number;
 };
 
 export const SkillsBox = ({
 	title = '',
 	skills,
+	delay = 0.3,
 }: Props): JSX.Element | null => {
 	const [activeSkillData, setActiveSkillData] = useState<ActiveSkillData>(null);
 	const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -72,7 +74,15 @@ export const SkillsBox = ({
 
 	if (!skills.length) return null;
 	return (
-		<div className="flex items-center justify-center relative h-[300px] w-[300px]">
+		<motion.div
+			className="flex items-center justify-center relative h-[280px] w-[280px]"
+			whileInView={{ opacity: [0, 1] }}
+			viewport={{ once: true }}
+			transition={{
+				duration: 1,
+				delay: delay,
+			}}
+		>
 			{/* Main Hexagon */}
 			<motion.div
 				whileInView={{ opacity: [0, 1], scale: [0, 1] }}
@@ -128,10 +138,9 @@ export const SkillsBox = ({
 			</motion.div>
 
 			{/* Skills */}
-			<div className="absolute left-0 top-0 w-[100%] h-[100%] translate-x-[-8%] translate-y-[-8%]">
+			<div className="absolute w-full h-full">
 				{skills.map((skill, index) => {
 					const { x, y } = calculatePosition(index, skillsCount, radius);
-
 					return (
 						<motion.div
 							key={skill.name}
@@ -143,17 +152,11 @@ export const SkillsBox = ({
 							}}
 							whileInView={{
 								opacity: [0, 1],
-								x: [x / 0.5, 0],
-								y: [y / 0.5, 0],
-								scale: [0, 1],
 							}}
 							viewport={{ once: true }}
 							transition={{
-								type: 'spring',
-								stiffness: 150,
-								damping: 10,
 								duration: 1,
-								delay: index * 0.2,
+								delay: index * 0.2 + delay,
 							}}
 						>
 							<div
@@ -181,6 +184,6 @@ export const SkillsBox = ({
 					);
 				})}
 			</div>
-		</div>
+		</motion.div>
 	);
 };
