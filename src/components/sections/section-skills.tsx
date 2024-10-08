@@ -1,4 +1,4 @@
-import { Container, Description, SkillsBox } from '@/components/shared';
+import { Container, Description, SkillsBox, Title } from '@/components/shared';
 import { AnimatedLine, YAnimation } from '@/components/animations';
 import { SKILLS } from '@/data';
 
@@ -10,16 +10,14 @@ export const SectionSkills = (): React.ReactElement => {
 					{/* Skills Header */}
 					<div className="flex flex-col items-center justify-center mb-10">
 						<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
-							<h2 className="text-5xl font-bold text-brand !ml-0">
-								<YAnimation>Skills</YAnimation>
-							</h2>
+							<Title text="Skills" size="lg" />
 							<AnimatedLine />
 						</div>
 						<Description text="I am striving to never stop learning and improving" />
 					</div>
 
 					{/* Skills Icons */}
-					<div className="flex flex-wrap justify-center gap-10">
+					<div className="flex flex-wrap justify-center gap-20">
 						{Object.keys(SKILLS).map((key, index) => (
 							<SkillsBox
 								key={key}

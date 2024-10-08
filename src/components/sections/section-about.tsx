@@ -5,7 +5,7 @@ import { Profile } from './section-main/shared';
 
 export const SectionAbout = (): React.ReactElement => {
 	return (
-		<section className="flex items-center bg-[url('/images/about-me-bg.svg')] bg-cover bg-center min-h-720:h-screen">
+		<section className="flex items-center min-h-720:h-screen">
 			<Container className="flex flex-col items-center justify-between gap-32 min-h-720:flex-row">
 				<div className="flex flex-col gap-16 max-w-[880px] items-center">
 					<motion.h2
@@ -13,7 +13,7 @@ export const SectionAbout = (): React.ReactElement => {
 						whileInView={{ scaleX: [0.3, 1] }}
 						transition={{
 							type: 'spring',
-							stiffness: 100,
+							stiffness: 50,
 							damping: 10,
 							duration: 1,
 						}}
@@ -27,14 +27,11 @@ export const SectionAbout = (): React.ReactElement => {
 						</motion.span>
 					</motion.h2>
 					<motion.div
-						className="px-10 py-6 bg-background rounded-xl"
+						className="px-10 py-6 rounded-lg shadow-xl bg-background"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
 						transition={{
-							type: 'spring',
-							stiffness: 100,
-							damping: 10,
 							delay: 0.5,
 						}}
 					>
@@ -90,7 +87,7 @@ export const SectionAbout = (): React.ReactElement => {
 
 						<motion.div
 							className="text-brand"
-							whileInView={{ opacity: [0, 1], y: [30, 0], x: [30, 0] }}
+							whileInView={{ opacity: [0, 1], y: [20, 0], x: [20, 0] }}
 							transition={{
 								type: 'spring',
 								stiffness: 100,

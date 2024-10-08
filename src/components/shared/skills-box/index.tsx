@@ -75,7 +75,7 @@ export const SkillsBox = ({
 	if (!skills.length) return null;
 	return (
 		<motion.div
-			className="flex items-center justify-center relative h-[280px] w-[280px]"
+			className="flex items-center justify-center relative w-[250px] h-[250px] sm:h-[300px] sm:w-[300px]"
 			whileInView={{ opacity: [0, 1] }}
 			viewport={{ once: true }}
 			transition={{
@@ -99,7 +99,7 @@ export const SkillsBox = ({
 
 			{/* Border Hexagons */}
 			<motion.div
-				className="absolute top-0 left-0 w-[100%] h-[100%] "
+				className="absolute top-0 left-0 w-[100%] h-[100%]"
 				whileInView={{ opacity: [0, 1], scale: [0, 1] }}
 				transition={{
 					duration: 0.5,

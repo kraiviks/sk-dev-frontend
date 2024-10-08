@@ -26,13 +26,14 @@ export const Profile = ({ className }: { className?: string }) => {
 				'relative flex flex-col items-center border-4 border-white shadow-brand shadow-lg rounded-tl-[100px] rounded-br-[100px] py-9 px-6 min-w-[300px] max-w-[300px]',
 				className
 			)}
-			animate={{
+			whileInView={{
 				opacity: [0, 1],
-				x: [-300, 0],
+				x: [-50, 0],
 				y: [300, 0],
 				scale: [0.5, 1],
 			}}
-			transition={{ type: 'spring', stiffness: 100, damping: 10, duration: 1 }}
+			viewport={{ once: true }}
+			transition={{ type: 'spring', stiffness: 50, damping: 10, duration: 2 }}
 		>
 			<motion.div
 				className="absolute top-0 left-0 w-[calc(100%+8px)] h-[calc(100%+8px)] border-l-4 border-t-4 border-brand rounded-tl-[110px] -translate-x-2 -translate-y-2 z-[-1]"

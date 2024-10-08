@@ -5,6 +5,8 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import Link from 'next/link';
 import { Logo } from './logo';
 import { motion } from 'framer-motion';
+import { ModeToggle } from './mode-toggle';
+import { ProfileDropdown } from './profile-dropdown';
 
 export const Sidebar = ({ routes }: { routes: any[] }) => {
 	const [toggled, setToggled] = useState(false);
@@ -43,21 +45,33 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 				initial={{ x: '-100%' }}
 				animate={toggled ? { x: 0 } : { x: '-100%' }}
 				transition={{ duration: 0.5 }}
-				className="fixed top-0 left-0 h-screen bg-primary-foreground min-w-[250px] p-10 z-50"
+				className="fixed top-0 left-0 h-screen bg-brandBg min-w-[250px] p-10 z-50"
 			>
-				<nav className="flex flex-col items-start justify-start h-full w-full z-60">
-					<Logo />
-					<ul className="w-full">
-						{routes.map((route) => (
-							<SidebarItem
-								key={route.label}
-								href={route.path}
-								handleClick={() => setToggled(false)}
-							>
-								{route.label}
-							</SidebarItem>
-						))}
-					</ul>
+				<nav className="flex flex-col items-start justify-start w-full h-full z-60">
+					{/* Header */}
+					<div onClick={() => setToggled(false)}>
+						<Logo />
+					</div>
+					<div className="flex flex-col justify-between w-full h-full">
+						{/* Routes */}
+						<ul className="w-full">
+							{routes.map((route) => (
+								<SidebarItem
+									key={route.label}
+									href={route.path}
+									handleClick={() => setToggled(false)}
+								>
+									{route.label}
+								</SidebarItem>
+							))}
+						</ul>
+
+						{/* Actions */}
+						<div className='flex items-center justify-between w-full'>
+							<ModeToggle />
+							<ProfileDropdown/>
+						</div>
+					</div>
 				</nav>
 			</motion.aside>
 
@@ -67,7 +81,7 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 					initial={{ opacity: 0 }}
 					animate={toggled ? { opacity: 1 } : { opacity: 0 }}
 					transition={{ duration: 0.5 }}
-					className="fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-40"
+					className="fixed top-0 left-0 z-40 w-full h-screen bg-black bg-opacity-50"
 					onClick={() => setToggled(false)}
 				/>
 			)}
@@ -91,7 +105,7 @@ function SidebarItem({
 		<li className="my-4">
 			<Link
 				href={href}
-				className="block py-3 px-5 rounded-md text-white hover:bg-secondary hover:text-brand transition-colors duration-200 ease-in-out"
+				className="block px-5 py-3 text-white transition-colors duration-200 ease-in-out rounded-md hover:bg-secondary hover:text-brand"
 				onClick={handleClick}
 			>
 				{children}

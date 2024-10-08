@@ -33,7 +33,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 	return (
 		<motion.header
 			className={cn(
-				'h-20 flex justify-center items-center border-b border-gray-400 fixed top-0 left-0 right-0 z-50',
+				'h-20 flex justify-center items-center backdrop-blur border-b border-gray-400 fixed top-0 left-0 right-0 z-50',
 				className
 			)}
 			initial={{ opacity: 0, y: -100 }}
@@ -42,11 +42,11 @@ export const Header: React.FC<Props> = ({ className }) => {
 			transition={{ duration: 0.5 }}
 		>
 			<Container className="flex items-center justify-between flex-1">
-				<div className="flex gap-3 items-center">
+				<div className="flex items-center gap-3">
 					<Logo />
 				</div>
 
-				<div className="hidden sm:flex gap-3 items-center flex-1 justify-center">
+				<div className="items-center justify-center flex-1 hidden gap-3 sm:flex">
 					{ROUTES.map((route) => (
 						<Link
 							key={route.label}
@@ -61,7 +61,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 					))}
 				</div>
 
-				<div className="flex gap-3 justify-center items-center">
+				<div className="flex items-center justify-center gap-3">
 					<div className="hidden gap-3 justify-center items-center min-w-[200px] sm:flex">
 						<ModeToggle />
 						<ProfileDropdown />

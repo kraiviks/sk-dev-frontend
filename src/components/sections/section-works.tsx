@@ -1,5 +1,5 @@
 import * as motion from 'framer-motion/client';
-import { Description, Modal } from '../shared';
+import { Description, Modal, Title } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 import { WORKS } from '@/data';
 import Image from 'next/image';
@@ -13,12 +13,10 @@ export const SectionWorks = () => {
 				{/* Works Header */}
 				<div className="flex flex-col items-center justify-center mb-10">
 					<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
-						<h2 className="text-5xl font-bold text-brand !ml-0">
-							<YAnimation>Works</YAnimation>
-							<AnimatedLine />
-						</h2>
+						<Title text="Works" size="lg" />
+						<AnimatedLine />
 					</div>
-					<Description text='I had the pleasure of working with these awesome projects'/>
+					<Description text="I had the pleasure of working with these awesome projects" />
 				</div>
 
 				{/* Works */}
@@ -26,7 +24,7 @@ export const SectionWorks = () => {
 					{WORKS.map((work, index) => (
 						<motion.div
 							key={work.title}
-							className={`flex items-center min-w-[380px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
+							className={`flex items-center min-w-[350px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
 							whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 							viewport={{ once: true }}
 							transition={{

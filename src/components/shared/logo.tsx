@@ -31,7 +31,7 @@ export const Logo: React.FC = () => {
 					SK
 				</motion.div>
 				<motion.div
-					className="text-brand text-xl"
+					className="text-xl text-brand"
 					initial={{ opacity: 0, x: 50, y: -50 }}
 					whileInView={{ opacity: 1, x: 0, y: 0 }}
 					transition={{

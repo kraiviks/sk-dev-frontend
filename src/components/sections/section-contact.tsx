@@ -1,26 +1,24 @@
 import * as motion from 'framer-motion/client';
 import { SendIcon } from 'lucide-react';
 import { Button } from '../ui/button';
-import { Container } from '../shared';
+import { Container, Title } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 
 export const SectionContact = (): React.ReactElement => {
 	return (
 		<section className="relative flex items-center h-screen">
-			<Container className="flex gap-32 justify-between z-10">
-				<div className="flex flex-col justify-center text-white min-h-screen py-12">
+			<Container className="z-10 flex justify-between gap-32">
+				<div className="flex flex-col justify-center min-h-screen py-12 text-white">
 					{/* Contact Header */}
 					<div className="flex flex-col items-center justify-center mb-28">
-						<div className="flex justify-center items-center w-max space-x-2 mb-2 relative">
+						<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
+							<Title text="Contact" size="lg" />
 							<AnimatedLine />
-							<h2 className="text-5xl font-bold text-brand !ml-0">
-								<YAnimation>Contact</YAnimation>
-							</h2>
 						</div>
 					</div>
 					<div className="flex flex-col items-center">
 						<motion.h3
-							className="text-brand font-medium text-3xl border-brand w-max py-4 px-10 border-4 rounded-tl-3xl rounded-br-3xl mb-16"
+							className="px-10 py-4 mb-16 text-3xl font-medium border-4 text-brand border-brand w-max rounded-tl-3xl rounded-br-3xl"
 							initial={{ opacity: 0, y: -300, scale: 0 }}
 							whileInView={{ opacity: 1, y: 0, scale: 1 }}
 							viewport={{ once: true }}
@@ -51,7 +49,7 @@ export const SectionContact = (): React.ReactElement => {
 									id="form-name"
 									type="text"
 									placeholder="Name"
-									className="border-brand border-b py-4 pr-8 bg-transparent outline-none"
+									className="py-4 pr-8 bg-transparent border-b outline-none border-brand"
 								/>
 							</motion.div>
 							<motion.div
@@ -72,7 +70,7 @@ export const SectionContact = (): React.ReactElement => {
 									id="form-email"
 									type="text"
 									placeholder="Email"
-									className="border-brand border-b py-4 pr-8 bg-transparent outline-none"
+									className="py-4 pr-8 bg-transparent border-b outline-none border-brand"
 								/>
 							</motion.div>
 							<motion.div
@@ -93,7 +91,7 @@ export const SectionContact = (): React.ReactElement => {
 								<textarea
 									id="form-message"
 									placeholder="Message"
-									className="border-brand border-b py-4 pr-8  bg-transparent outline-none"
+									className="py-4 pr-8 bg-transparent border-b outline-none border-brand"
 								/>
 							</motion.div>
 

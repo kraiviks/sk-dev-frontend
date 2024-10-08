@@ -1,6 +1,6 @@
 import * as motion from 'framer-motion/client';
 import React from 'react';
-import { ArticleList, Container, Description } from '../shared';
+import { ArticleList, Container, Description, Title } from '../shared';
 import { Button } from '../ui/button';
 import { ListViewType } from '@/types';
 import { AnimatedLine, YAnimation } from '../animations';
@@ -13,10 +13,8 @@ export const SectionBlog = (): React.ReactElement => {
 				{/* Blog Header */}
 				<div className="flex flex-col items-center justify-center mb-10">
 					<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
+						<Title text="Blog" size="lg" />
 						<AnimatedLine />
-						<h2 className="text-5xl font-bold text-brand !ml-0">
-							<YAnimation>Blog</YAnimation>
-						</h2>
 					</div>
 					<Description text="My thoughts on technology and business" />
 				</div>
@@ -29,7 +27,7 @@ export const SectionBlog = (): React.ReactElement => {
 					whileInView={{ opacity: [0, 1], y: [100, 0], scale: [0.5, 1] }}
 					transition={{
 						type: 'spring',
-						stiffness: 100,
+						stiffness: 50,
 						damping: 10,
 						duration: 1,
 					}}

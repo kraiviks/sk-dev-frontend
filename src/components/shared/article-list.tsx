@@ -41,13 +41,13 @@ export const ArticleList = ({
 
 	if (error)
 		return (
-			<div className="text-red-500 text-center font-bold mb-4 py-4 text-xl w-full bg-red-100 rounded shadow">
+			<div className="w-full py-4 mb-4 text-xl font-bold text-center text-red-500 bg-red-100 rounded shadow">
 				Error loading articles
 			</div>
 		);
 	if (!data || !data.length)
 		return (
-			<div className="text-center font-bold mb-4 py-4 text-xl w-full">
+			<div className="w-full py-4 mb-4 text-xl font-bold text-center">
 				Not found
 			</div>
 		);
@@ -60,16 +60,15 @@ export const ArticleList = ({
 				{data.slice(0, max || data.length).map((article: article) => (
 					<li
 						key={article.slug}
-						className={cn(
-							'p-4',
-							!isListView && 'rounded-lg hover:shadow-lg'
-						)}
+						className={cn('p-4', !isListView && 'rounded-lg hover:shadow-lg')}
 					>
 						<Link href={`/articles/${article.slug}`}>
 							<div
 								className={cn(
 									'flex',
-									isListView ? 'gap-2 items-center' : 'flex-col gap-4 items-center'
+									isListView
+										? 'gap-2 items-center'
+										: 'flex-col gap-4 items-center'
 								)}
 							>
 								<img
@@ -79,7 +78,7 @@ export const ArticleList = ({
 									height={170}
 									className={cn(
 										'h-[170px] object-contain',
-										!isListView ? '' : 'w-36 h-20'
+										!isListView ? '' : 'min-w-36 w-36 h-20'
 									)}
 								/>
 								<div className="flex flex-col gap-2">
@@ -101,7 +100,7 @@ export const ArticleList = ({
 								isListView ? 'justify-end mt-3 gap-3' : ' justify-between'
 							)}
 						>
-							<div className="text-gray-500 text-xs">
+							<div className="text-xs text-gray-500">
 								{formatDate(article.createdAt)}
 							</div>
 							<Likes id={article.id} />

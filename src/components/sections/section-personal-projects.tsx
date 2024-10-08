@@ -1,5 +1,5 @@
 import * as motion from 'framer-motion/client';
-import { Description, Logo, Modal } from '../shared';
+import { Description, Logo, Modal, Title } from '../shared';
 import { AnimatedLine, YAnimation } from '../animations';
 import { PERSONAL_PROJECTS } from '@/data';
 import Image from 'next/image';
@@ -14,10 +14,8 @@ export const SectionPersonalProjects = () => {
 				{/* Works Header */}
 				<div className="flex flex-col items-center justify-center mb-10">
 					<div className="relative flex items-center justify-center mb-2 space-x-2 w-max">
+						<Title text="Personal projects" size="lg" />
 						<AnimatedLine />
-						<h2 className="text-5xl font-bold text-brand !ml-0">
-							<YAnimation>Personal projects</YAnimation>
-						</h2>
 					</div>
 					<Description
 						text="I explore new technologies and ideas in my personal projects,
@@ -30,7 +28,7 @@ export const SectionPersonalProjects = () => {
 					{PERSONAL_PROJECTS.map((work, index) => (
 						<motion.div
 							key={work.title}
-							className={`flex items-center min-w-[380px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
+							className={`flex items-center min-w-[350px] w-[30%] bg-slate-500 bg-opacity-30 group cursor-pointer`}
 							whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 							viewport={{ once: true }}
 							transition={{
