@@ -52,7 +52,7 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 					<div onClick={() => setToggled(false)}>
 						<Logo />
 					</div>
-					<div className="flex flex-col justify-between w-full h-full">
+					<div className="flex flex-col justify-between w-full h-[90%]">
 						{/* Routes */}
 						<ul className="w-full">
 							{routes.map((route) => (
