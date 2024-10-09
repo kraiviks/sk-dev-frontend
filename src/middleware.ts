@@ -22,7 +22,7 @@ export async function middleware(req: NextRequest) {
 	if (req.nextUrl.pathname.startsWith('/articles/edit')) {
 		const authorId = req.cookies.get('authorId')?.value;
 		if (authorId && !(await verifyAuthor(authorId, token))) {
-			return redirectToArticles(req);
+			return redirectToArticle(req);
 		}
 	}
 
@@ -43,9 +43,10 @@ function redirectToLogin(req: NextRequest) {
 	return NextResponse.redirect(loginUrl);
 }
 
-function redirectToArticles(req: NextRequest) {
-	const articlesUrl = new URL('/articles', req.url);
-	return NextResponse.redirect(articlesUrl);
+function redirectToArticle(req: NextRequest) {
+	const slug = req.nextUrl.pathname.split('/').pop();
+	const articleUrl = new URL(`/articles/${slug}`, req.url);
+	return NextResponse.redirect(articleUrl);
 }
 
 // CONFIG
