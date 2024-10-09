@@ -17,7 +17,7 @@ const sections = [
 	<SectionWorks key="works" />,
 	<SectionPersonalProjects key="personal-projects" />,
 	<SectionBlog key="blog" />,
-	// <SectionContact key="contact" />,
+	<SectionContact key="contact" />,
 ];
 
 export default function Home() {
