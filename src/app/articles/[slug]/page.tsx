@@ -55,7 +55,7 @@ export default async function ArticlePage({
 			</div>
 
 			<div className="prose prose-lg">
-				<ClientArticle content={data?.content} />
+				<ClientArticle content={data?.content} authorId={data?.authorId} />
 				<Comments articleId={data?.id} />
 			</div>
 		</div>

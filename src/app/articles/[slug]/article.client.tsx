@@ -9,11 +9,19 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import 'prismjs/plugins/show-language/prism-show-language';
 import 'prismjs/plugins/toolbar/prism-toolbar.css';
 import './code-toolbar.css';
+import { setCookie } from 'cookies-next';
 
-const ClientArticle = ({ content }: { content: string }) => {
+const ClientArticle = ({
+	content,
+	authorId,
+}: {
+	content: string;
+	authorId: string;
+}) => {
 	useEffect(() => {
 		Prism.highlightAll();
-	}, []);
+		setCookie('authorId', authorId);
+	}, [authorId]);
 
 	return (
 		<article
