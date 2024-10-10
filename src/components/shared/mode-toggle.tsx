@@ -1,11 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 import { Button } from '@/components/ui/button';
 
-export function ModeToggle() {
+export const ModeToggle: FC = () => {
 	const [mounted, setMounted] = useState(false);
 	const { setTheme, theme } = useTheme();
 
@@ -17,6 +17,7 @@ export function ModeToggle() {
 
 	const isDark = theme === 'dark';
 
+	return false;
 	return (
 		<Button
 			className="cursor-pointer select-none"
@@ -26,4 +27,4 @@ export function ModeToggle() {
 			{isDark ? <Moon size={16} /> : <Sun size={16} className="text-black" />}
 		</Button>
 	);
-}
+};
