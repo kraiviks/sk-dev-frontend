@@ -81,7 +81,7 @@ export const SectionContact = (): React.ReactElement => {
 					</div>
 					<div className="flex flex-col items-center">
 						<motion.h3
-							className="px-10 py-4 mb-16 text-3xl font-medium border-4 text-brand border-brand w-max rounded-tl-3xl rounded-br-3xl"
+							className="px-10 py-4 mb-16 text-2xl font-medium border-4 text-brand border-brand w-max rounded-tl-3xl rounded-br-3xl"
 							initial={{ opacity: 0, y: -50, scale: 0 }}
 							whileInView={{ opacity: 1, y: 0, scale: 1 }}
 							viewport={{ once: true }}
@@ -92,7 +92,7 @@ export const SectionContact = (): React.ReactElement => {
 						>
 							{statusMessage ? (
 								<motion.div
-									className='text-xl md:text-3xl'
+									className="text-xl md:text-3xl"
 									whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 									transition={{
 										type: 'spring',
@@ -119,9 +119,6 @@ export const SectionContact = (): React.ReactElement => {
 									className="flex flex-col w-full"
 									whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 									transition={{
-										type: 'spring',
-										stiffness: 100,
-										damping: 10,
 										duration: 1,
 										delay: 0.5,
 									}}
@@ -147,9 +144,6 @@ export const SectionContact = (): React.ReactElement => {
 									className="flex flex-col w-full"
 									whileInView={{ opacity: [0, 1], scale: [0.5, 1] }}
 									transition={{
-										type: 'spring',
-										stiffness: 100,
-										damping: 10,
 										duration: 1,
 										delay: 0.7,
 									}}
@@ -177,9 +171,6 @@ export const SectionContact = (): React.ReactElement => {
 								initial={{ opacity: 0, y: 50, scale: 0.5 }}
 								whileInView={{ opacity: 1, y: 0, scale: 1 }}
 								transition={{
-									type: 'spring',
-									stiffness: 50,
-									damping: 10,
 									duration: 0.7,
 									delay: 0.9,
 								}}
