@@ -81,12 +81,12 @@ export const ArticleList = ({
 										!isListView ? '' : 'min-w-36 w-36 h-20'
 									)}
 								/>
-								<div className="flex flex-col gap-2 w-full">
+								<div className="flex flex-col gap-2 w-full max-w-[50%] md:max-w-[70%] lg:max-w-[80%]">
 									<div className="text-2xl font-medium text-brand hover:text-cyan-500 truncate">
 										{article.title}
 									</div>
 									<p
-										className="text-gray-500 truncate line-clamp-3 text-wrap max-w-[950px]"
+										className="text-gray-500 truncate max-w-[950px]"
 										title={article.description}
 									>
 										{article.description}
