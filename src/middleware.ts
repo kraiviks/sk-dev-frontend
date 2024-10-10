@@ -77,5 +77,5 @@ function redirectToHome(req: NextRequest) {
 // CONFIG
 
 export const config = {
-	matcher: [...PRIVATE_CONDITIONS, ...AUTH_CONDITIONS],
+	matcher: ['/login', '/register', '/articles/create', '/articles/edit:path*', '/profile'],
 };
