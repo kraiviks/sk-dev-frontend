@@ -81,8 +81,8 @@ export const ArticleList = ({
 										!isListView ? '' : 'min-w-36 w-36 h-20'
 									)}
 								/>
-								<div className="flex flex-col gap-2">
-									<div className="text-2xl font-medium text-brand hover:text-cyan-500 ">
+								<div className="flex flex-col gap-2 w-full">
+									<div className="text-2xl font-medium text-brand hover:text-cyan-500 truncate">
 										{article.title}
 									</div>
 									<p
