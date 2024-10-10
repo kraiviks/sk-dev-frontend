@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -49,9 +50,9 @@ const CommentItem = ({
 					alt="Commenter Avatar"
 					className="h-12 w-12 rounded-full bg-gray-100 p-1"
 				/>
-				<div className="flex flex-col flex-1">
+				<div className="flex flex-col flex-1 w-[85%]">
 					<p className="font-bold text-lg">{author.username}</p>
-					<p className="text-gray-500">
+					<p className="text-gray-500 break-words">
 						{editing ? (
 							<textarea
 								ref={textareaRef}
