@@ -1,6 +1,7 @@
 'use client';
 
 import { useUser } from '@/contexts/UserContext';
+import { FileEditIcon } from 'lucide-react';
 import Link from 'next/link';
 
 export const EditArticleLink = ({
@@ -16,11 +17,11 @@ export const EditArticleLink = ({
 		return null;
 	}
 	return (
-		<Link
-			href={`/articles/edit/${slug}`}
-			className="text-blue-500 hover:underline"
-		>
-			Edit
+		<Link href={`/articles/edit/${slug}`}>
+			<FileEditIcon
+				className="hover:text-brand transition-colors cursor-pointer"
+				size={16}
+			/>
 		</Link>
 	);
 };
