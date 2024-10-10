@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { Editor as TinyMCEEditor } from '@tinymce/tinymce-react';
 
 export const Editor = ({ value, onChange }: any) => {
@@ -41,3 +41,5 @@ export const Editor = ({ value, onChange }: any) => {
 		/>
 	);
 };
+
+export default Editor;
