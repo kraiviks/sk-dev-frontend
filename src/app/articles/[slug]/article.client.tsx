@@ -27,6 +27,7 @@ const ClientArticle = ({
 		<article
 			dangerouslySetInnerHTML={{ __html: content }}
 			suppressHydrationWarning={true} // Suppress the hydration warning
+			className='break-words'
 		></article>
 	);
 };
