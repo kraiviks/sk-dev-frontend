@@ -32,11 +32,13 @@ export default async function ArticlePage({
 						>
 							&larr; Back to articles
 						</Link>
-						<EditArticleLink slug={data?.slug} authorId={data?.authorId} />
 					</div>
-					<Delete type="post" id={data?.id} authorId={data?.authorId} />
+					<div className='flex items-center gap-3'>
+						<EditArticleLink slug={data?.slug} authorId={data?.authorId} />
+						<Delete type="post" id={data?.id} authorId={data?.authorId} />
+					</div>
 				</div>
-				<h1 className="text-5xl font-bold mb-4">{data?.title}</h1>
+				<h1 className="text-5xl font-bold mb-4 break-words">{data?.title}</h1>
 			</div>
 			<div className="flex items-center justify-between mb-8">
 				<Link href={`/profile/${data?.authorId}`} className="flex gap-1">
