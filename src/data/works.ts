@@ -1,3 +1,4 @@
+import { emailjs } from '@emailjs/browser';
 export const WORKS = [
 	{
 		title: 'D-ETF',
@@ -54,7 +55,7 @@ export const PERSONAL_PROJECTS = [
 		description: 'New portfolio on Nuxt.js',
 		image: null,
 		href: 'https://sk-dev-app.vercel.app/',
-		source: 'https://github.com/kraiviks/sk-dev',
+		source: 'https://github.com/kraiviks/sk-dev-frontend',
 		technologies: [
 			'TypeScript',
 			'React',
@@ -67,9 +68,11 @@ export const PERSONAL_PROJECTS = [
 			'react-use',
 			'react-icons',
 			'react-hook-form',
+			'yup',
+			'emailjs',
 			'framer-motion',
 			'vercel',
-			'supabase'
+			'supabase',
 		],
 	},
 	{
