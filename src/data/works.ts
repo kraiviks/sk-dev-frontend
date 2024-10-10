@@ -1,4 +1,3 @@
-import { emailjs } from '@emailjs/browser';
 export const WORKS = [
 	{
 		title: 'D-ETF',
