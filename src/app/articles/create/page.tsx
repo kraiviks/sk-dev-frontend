@@ -1,12 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { Editor } from '@/components/shared/editor';
+// import { Editor } from '@/components/shared/editor';
 import { Api } from '@/services/api/api-client';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
+import dynamic from 'next/dynamic';
+
+const Editor = dynamic(() => import('@/components/shared/editor'), {
+  ssr: false,
+});
 const CreateArticlePage = () => {
 	const router = useRouter();
 	const [isSubmitting, setIsSubmitting] = useState(false);
@@ -87,13 +93,15 @@ const CreateArticlePage = () => {
 				<div className="mt-6">
 					<span className="text-2xl">Content</span>
 					<div className="mt-2">
-						<Editor
-							value={editorContent}
-							onChange={handleEditorChange}
-						/>
+						<Editor value={editorContent} onChange={handleEditorChange} />
 					</div>
 				</div>
-				<Button type="submit" variant="default" disabled={isSubmitting}>
+				<Button
+					className="text-white"
+					type="submit"
+					variant="default"
+					disabled={isSubmitting}
+				>
 					{isSubmitting ? (
 						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
 					) : (

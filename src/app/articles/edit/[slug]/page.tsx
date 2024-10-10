@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import  { Editor } from '@/components/shared/editor';
+import { Editor } from '@/components/shared/editor';
 import { Api } from '@/services/api/api-client';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { useRouter, useParams } from 'next/navigation';
 import { ApiRoutes } from '@/services/api/constants';
+import { motion } from 'framer-motion';
 
 const EditArticlePage = () => {
 	const router = useRouter();
@@ -50,11 +51,23 @@ const EditArticlePage = () => {
 			setDescription(res.data.description);
 			setArticleId(res.data.id);
 		});
-	}, []);
+	}, [slug]);
 
 	return (
 		<div className="container mx-auto mt-20 p-4 flex flex-col items-center justify-center min-h-screen">
-			<h1 className="text-5xl font-bold mb-12">Edit article</h1>
+			<motion.h1
+				className="text-5xl font-bold mb-12"
+				whileInView={{ opacity: [0, 1] }}
+				viewport={{ once: true }}
+				transition={{
+					type: 'spring',
+					stiffness: 100,
+					damping: 10,
+					duration: 0.6,
+				}}
+			>
+				Edit article
+			</motion.h1>
 			<form
 				className="flex flex-col gap-6 w-full max-w-full"
 				onSubmit={(e) => {
@@ -104,10 +117,7 @@ const EditArticlePage = () => {
 				<div className="mt-6">
 					<span className="text-2xl">Content</span>
 					<div className="mt-2">
-						<Editor
-							value={editorContent}
-							onChange={handleEditorChange}
-						/>
+						<Editor value={editorContent} onChange={handleEditorChange} />
 					</div>
 				</div>
 				<Button
