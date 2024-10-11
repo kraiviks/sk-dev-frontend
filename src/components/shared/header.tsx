@@ -1,7 +1,13 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { Container, ModeToggle, Logo, Sidebar } from '@/components/shared';
+import {
+	Container,
+	ModeToggle,
+	Logo,
+	Sidebar,
+	BetaLabel,
+} from '@/components/shared';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -14,10 +20,12 @@ const ROUTES = [
 	{
 		label: 'Home',
 		path: '/',
+		beta: false,
 	},
 	{
 		label: 'Articles',
 		path: '/articles',
+		beta: true,
 	},
 ];
 
@@ -52,11 +60,11 @@ export const Header: React.FC<Props> = ({ className }) => {
 							key={route.label}
 							href={route.path}
 							className={cn(
-								'hover:text-brand transition-colors',
+								'relative hover:text-brand transition-colors',
 								pathname === route.path ? 'text-brand' : ''
 							)}
 						>
-							{route.label}
+							{route.beta ? <BetaLabel>{route.label}</BetaLabel> : route.label}
 						</Link>
 					))}
 				</div>
@@ -66,7 +74,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 						<ModeToggle />
 						<ProfileDropdown />
 					</div>
-					<Sidebar routes={ROUTES}/>
+					<Sidebar routes={ROUTES} />
 				</div>
 			</Container>
 		</motion.header>

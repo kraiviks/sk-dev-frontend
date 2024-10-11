@@ -7,6 +7,7 @@ import { Logo } from './logo';
 import { motion } from 'framer-motion';
 import { ModeToggle } from './mode-toggle';
 import { ProfileDropdown } from './profile-dropdown';
+import { BetaLabel } from './beta-label';
 
 export const Sidebar = ({ routes }: { routes: any[] }) => {
 	const [toggled, setToggled] = useState(false);
@@ -61,7 +62,7 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 									href={route.path}
 									handleClick={() => setToggled(false)}
 								>
-									{route.label}
+									{route.beta ? <BetaLabel>{route.label}</BetaLabel> : route.label}
 								</SidebarItem>
 							))}
 						</ul>

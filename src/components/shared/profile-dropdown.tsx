@@ -13,6 +13,7 @@ import { useAuthStore } from '@/stores/useAuthStore';
 import { useRouter } from 'next/navigation';
 import { getCookie } from 'cookies-next';
 import { useUserStore } from '@/stores/useUserStore';
+import { BetaLabel } from './beta-label';
 
 export function ProfileDropdown() {
 	const router = useRouter();
@@ -42,35 +43,37 @@ export function ProfileDropdown() {
 		}
 	}, [authStore.accessToken]);
 	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button variant={null} size="icon">
-					{authStore.accessToken ? (
-						<div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
-							<User className="text-black dark:text-white" />
-							<div className="truncate max-w-[100px]" title={user.username}>
-								{user.username}
+		<BetaLabel>
+			<DropdownMenu>
+				<DropdownMenuTrigger asChild>
+					<Button variant={null} size="icon">
+						{authStore.accessToken ? (
+							<div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
+								<User className="text-black dark:text-white" />
+								<div className="truncate max-w-[100px]" title={user.username}>
+									{user.username}
+								</div>
 							</div>
-						</div>
+						) : (
+							<UserMinus2 className="text-black dark:text-white" />
+						)}
+						<span className="sr-only">Profile dropdown</span>
+					</Button>
+				</DropdownMenuTrigger>
+				<DropdownMenuContent align="end">
+					{authStore.accessToken ? (
+						<>
+							<DropdownMenuItem onClick={goToProfile}>Profile</DropdownMenuItem>
+							<DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
+						</>
 					) : (
-						<UserMinus2 className="text-black dark:text-white" />
+						<>
+							<DropdownMenuItem onClick={login}>Login</DropdownMenuItem>
+							<DropdownMenuItem onClick={register}>Register</DropdownMenuItem>
+						</>
 					)}
-					<span className="sr-only">Profile dropdown</span>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
-				{authStore.accessToken ? (
-					<>
-						<DropdownMenuItem onClick={goToProfile}>Profile</DropdownMenuItem>
-						<DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
-					</>
-				) : (
-					<>
-						<DropdownMenuItem onClick={login}>Login</DropdownMenuItem>
-						<DropdownMenuItem onClick={register}>Register</DropdownMenuItem>
-					</>
-				)}
-			</DropdownMenuContent>
-		</DropdownMenu>
+				</DropdownMenuContent>
+			</DropdownMenu>
+		</BetaLabel>
 	);
 }
