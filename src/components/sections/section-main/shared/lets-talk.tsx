@@ -4,11 +4,17 @@ import { calculatePosition } from '@/lib/utils';
 import { motion, useAnimation } from 'framer-motion';
 import { MailIcon } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useClickAway } from 'react-use';
 
 export const LetsTalk = () => {
 	const [show, setShow] = useState<boolean>(false);
 	const controls = useAnimation();
+	const ref = useRef(null);
+
+	useClickAway(ref, () => {
+		setShow(false);
+	});
 
 	useEffect(() => {
 		if (show) {
@@ -28,13 +34,13 @@ export const LetsTalk = () => {
 
 	return (
 		<motion.div
-			className="relative text-3xl cursor-pointer text-brand w-max" // mx-auto для центрування по горизонталі
+			className="relative text-3xl cursor-pointer text-brand w-max"
 			initial={{ opacity: 0, y: 50 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 1, delay: 2 }}
 			onClick={() => setShow(!show)}
 		>
-			<div className="flex items-center gap-3">
+			<div className="flex items-center gap-3 select-none">
 				<motion.span
 					animate={{
 						opacity: [0, 1],
@@ -78,6 +84,7 @@ export const LetsTalk = () => {
 
 			{/* Центрований контейнер із круглим фоном для всіх іконок */}
 			<motion.div
+				ref={ref}
 				className="absolute w-[250px] h-[250px] shadow-lg rounded-full bg-slate-500 bg-opacity-70 backdrop-blur-xl flex items-center justify-center"
 				style={{
 					top: '50%',
