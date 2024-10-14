@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Hexagon from './components/hexagon';
-import { cn } from '@/lib/utils';
+import { calculatePosition, cn } from '@/lib/utils';
 import { SkillInterface } from '@/types/skill';
 
 type ActiveSkillData = {
@@ -29,25 +29,6 @@ export const SkillsBox = ({
 
 	const radius = 120; // Distance from the center of the hexagon to the skill
 	const skillsCount = skills.length;
-
-	// Calculate the position of each skill
-	const calculatePosition = (
-		index: number,
-		skillsCount: number,
-		radius: number
-	) => {
-		// Shift the angle by -90 degrees so that the first element is at the top
-		const angle = (index / skillsCount) * 2 * Math.PI - Math.PI / 2;
-		const x = radius * Math.cos(angle); // Calculate the x position
-		const y = radius * Math.sin(angle); // Calculate the y position
-
-		const roundToTwoDecimal = (num: number) => Math.round(num * 100) / 100;
-
-		return {
-			x: roundToTwoDecimal(x),
-			y: roundToTwoDecimal(y),
-		};
-	};
 
 	// Auto change active skill
 	useEffect(() => {

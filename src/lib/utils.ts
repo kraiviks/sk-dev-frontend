@@ -46,3 +46,21 @@ export function formatDate(dateString: string) {
 export function getRandom(min: number, max: number) {
 	return Math.random() * (max - min) + min;
 }
+
+export const calculatePosition = (
+	index: number,
+	itemsCount: number,
+	radius: number
+) => {
+	// Shift the angle by -90 degrees so that the first element is at the top
+	const angle = (index / itemsCount) * 2 * Math.PI - Math.PI / 2;
+	const x = radius * Math.cos(angle); // Calculate the x position
+	const y = radius * Math.sin(angle); // Calculate the y position
+
+	const roundToTwoDecimal = (num: number) => Math.round(num * 100) / 100;
+
+	return {
+		x: roundToTwoDecimal(x),
+		y: roundToTwoDecimal(y),
+	};
+};

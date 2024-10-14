@@ -2,7 +2,7 @@ import { Container } from '@/components/shared';
 
 import {
 	MainParagraph,
-	MainButton,
+	LetsTalk,
 	MainText,
 } from './shared';
 import Scroll from '@/components/ui/scroll';
@@ -33,7 +33,7 @@ export const SectionMain = () => {
 							]}
 						/>
 						<MainParagraph />
-						<MainButton />
+						<LetsTalk />
 					</div>
 				</div>
 			</Container>
