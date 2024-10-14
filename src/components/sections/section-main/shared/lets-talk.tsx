@@ -3,6 +3,7 @@ import { SOCIAL_NETWORKS } from '@/data';
 import { calculatePosition } from '@/lib/utils';
 import { motion, useAnimation } from 'framer-motion';
 import { MailIcon } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
@@ -95,6 +96,18 @@ export const LetsTalk = () => {
 				transition={{ duration: 0.5 }}
 				onMouseLeave={() => setShow(false)}
 			>
+				<motion.div
+					initial={{ opacity: 0, scale: 0.5 }}
+					animate={show ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+					transition={{ duration: 0.5, type: 'spring', stiffness: 100, damping: 10 }}
+				>
+					<Image
+						src={'/android-chrome-512x512.png'}
+						width={100}
+						height={100}
+						alt={'logo'}
+					/>
+				</motion.div>
 				{SOCIAL_NETWORKS.map(({ title, icon, href }, index) => {
 					const { x, y } = calculatePosition(
 						index,
