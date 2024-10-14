@@ -28,6 +28,7 @@ export const Fullpage = ({
 	const [disabledFullPage, setDisabledFullPage] = useState<boolean>(false);
 	const { triggerActiveClass } = useAnimation();
 	const windowSize = useWindowSize();
+	const isDesktop = windowSize.width >= 1090 && windowSize.height >= 720;
 
 	const renderPaginationIcon = (
 		icon: React.ReactNode,
@@ -40,10 +41,8 @@ export const Fullpage = ({
 	};
 
 	useEffect(() => {
-		const isDesktop = windowSize.width >= 1090 && windowSize.height >= 720;
-
 		setDisabledFullPage(isDesktop ? false : true);
-	}, [windowSize, disabledFullPage]);
+	}, [isDesktop, disabledFullPage]);
 
 	return !disabledFullPage ? (
 		<Swiper
