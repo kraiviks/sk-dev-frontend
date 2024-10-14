@@ -18,3 +18,4 @@ export { Description } from './description';
 export { Sidebar } from './sidebar';
 export { SkillsBox } from './skills-box';
 export { BetaLabel } from './beta-label';
+export { LoadingUi } from './loading-ui';
