@@ -9,6 +9,7 @@ import {
 	SectionPersonalProjects,
 } from '@/components/sections';
 import { AnimationProvider } from '@/contexts/AnimationContext';
+import { Spinner } from '@/components/ui/spinner';
 
 const sections = [
 	<SectionMain key="main" />,
