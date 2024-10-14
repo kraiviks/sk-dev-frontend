@@ -53,7 +53,7 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 					<div onClick={() => setToggled(false)}>
 						<Logo />
 					</div>
-					<div className="flex flex-col justify-between w-full h-[90%]">
+					<div className="flex flex-col w-full h-full">
 						{/* Routes */}
 						<ul className="w-full">
 							{routes.map((route) => (
@@ -68,7 +68,7 @@ export const Sidebar = ({ routes }: { routes: any[] }) => {
 						</ul>
 
 						{/* Actions */}
-						<div className='flex items-center justify-between w-full'>
+						<div className='flex items-center justify-between w-full border-t-2 border-slate-500 pt-5'>
 							<ModeToggle />
 							<ProfileDropdown/>
 						</div>
