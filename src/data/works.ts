@@ -50,7 +50,7 @@ export const WORKS = [
 
 export const PERSONAL_PROJECTS = [
 	{
-		title: 'SK-Dev',
+		title: '<SK.dev/>',
 		description: 'New portfolio on Nuxt.js',
 		image: null,
 		href: 'https://sk-dev-app.vercel.app/',

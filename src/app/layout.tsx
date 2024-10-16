@@ -6,8 +6,8 @@ import { Header } from '@/components/shared';
 import Providers from './providers';
 
 export const metadata: Metadata = {
-	title: 'SK-Dev',
-	description: 'SK-Dev - Personal Site',
+	title: '<SK.dev/>',
+	description: '<SK.dev/> - Personal Site',
 };
 
 export default async function RootLayout({
