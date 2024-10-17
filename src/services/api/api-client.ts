@@ -52,7 +52,7 @@ export const Api = {
 
 	//COMMENTS
 
-	createComment: (articleId: string, data: { content: string }) => {
+	createComment: (articleId: string, data: { content: string, parentId?: string }) => {
 		return axiosInstance.post(`${ApiRoutes.COMMENTS}/${articleId}`, data);
 	},
 

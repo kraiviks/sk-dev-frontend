@@ -44,7 +44,6 @@ const EditArticlePage = () => {
 
 	useEffect(() => {
 		Api.getArticle(slug).then((res) => {
-			console.log(res);
 			setEditorContent(res.data.content);
 			setTitle(res.data.title);
 			setImage(res.data.image);
@@ -54,9 +53,9 @@ const EditArticlePage = () => {
 	}, [slug]);
 
 	return (
-		<div className="container mx-auto mt-20 p-4 flex flex-col items-center justify-center min-h-screen">
+		<div className="container flex flex-col items-center justify-center min-h-screen p-4 mx-auto mt-20">
 			<motion.h1
-				className="text-5xl font-bold mb-12"
+				className="mb-12 text-5xl font-bold"
 				whileInView={{ opacity: [0, 1] }}
 				viewport={{ once: true }}
 				transition={{
@@ -69,7 +68,7 @@ const EditArticlePage = () => {
 				Edit article
 			</motion.h1>
 			<form
-				className="flex flex-col gap-6 w-full max-w-full"
+				className="flex flex-col w-full max-w-full gap-6"
 				onSubmit={(e) => {
 					e.preventDefault();
 					handleSubmit();
@@ -83,7 +82,7 @@ const EditArticlePage = () => {
 								type="text"
 								name="title"
 								id=""
-								className="w-full px-4 py-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+								className="w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
 								onChange={(e) => setTitle(e.target.value)}
 								value={title}
 							/>
@@ -93,7 +92,7 @@ const EditArticlePage = () => {
 							<textarea
 								name="description"
 								id=""
-								className="w-full px-4 py-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+								className="w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
 								onChange={(e) => setDescription(e.target.value)}
 								value={description}
 							/>
@@ -104,7 +103,7 @@ const EditArticlePage = () => {
 								type="text"
 								name="image"
 								id=""
-								className="w-full px-4 py-2 rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300"
+								className="w-full px-4 py-2 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
 								value={image}
 								onChange={(e) => setImage(e.target.value)}
 							/>
@@ -127,7 +126,7 @@ const EditArticlePage = () => {
 					className="dark:text-white"
 				>
 					{isSubmitting ? (
-						<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+						<Loader2 className="w-4 h-4 mr-2 animate-spin" />
 					) : (
 						'Save'
 					)}

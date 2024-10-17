@@ -8,8 +8,11 @@ export interface Author {
 
 export interface Comment {
 	id: string;
+	articleId: string;
 	content: string;
 	author: Author;
 	createdAt: string;
 	updatedAt: string;
+	replies?: Comment[];
+	parentId?: string;
 }

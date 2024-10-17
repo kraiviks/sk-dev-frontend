@@ -1,16 +1,15 @@
 'use client';
-
+import { FC, useState } from 'react';
+import useSWR from 'swr';
 import { Api } from '@/services/api/api-client';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { Comment } from '@/types/comment';
-import { FC, useState } from 'react';
-import useSWR from 'swr';
-import CommentItem from './comment-item';
 import { Button } from '@/components/ui/button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { cn } from '@/lib/utils';
+import CommentItem from './comment-item';
 
 const fetcher = async (articleId: string) => {
 	const { data } = await Api.getCommentsByArticleId(articleId);
@@ -19,6 +18,7 @@ const fetcher = async (articleId: string) => {
 
 interface CommentFormValue {
 	comment: string;
+	parentId?: string;
 }
 
 const validationSchema = Yup.object({
@@ -30,8 +30,9 @@ const validationSchema = Yup.object({
 
 export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 	const { accessToken } = useAuthStore();
-
-	const { data, mutate } = useSWR('comments', () => fetcher(articleId));
+	const { data: comments, mutate } = useSWR(`comments-${articleId}`, () =>
+		fetcher(articleId)
+	);
 
 	const {
 		register,
@@ -43,10 +44,13 @@ export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 		resolver: yupResolver(validationSchema),
 	});
 
-	const submit: SubmitHandler<CommentFormValue> = async (data) => {
+	const submitComment: SubmitHandler<CommentFormValue> = async (
+		data,
+		parentId?: string
+	) => {
 		if (accessToken) {
 			try {
-				await Api.createComment(articleId, { content: data.comment });
+				await Api.createComment(articleId, { content: data.comment, parentId });
 				mutate();
 				reset();
 			} catch (error) {
@@ -54,11 +58,20 @@ export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 			}
 		}
 	};
+
+	const filteredComments = comments?.filter(
+		(comment:Comment) => comment.parentId === null
+	);
+
 	return (
 		<div className="mt-8">
-			<h2 className="text-3xl font-bold mb-4">Comments</h2>
+			<h2 className="mb-4 text-3xl font-bold">Comments</h2>
+			{/* Форма для нового коментаря */}
 			{accessToken && (
-				<form onSubmit={handleSubmit(submit)} className='mb-4'>
+				<form
+					onSubmit={handleSubmit((data) => submitComment(data))}
+					className="mb-4"
+				>
 					<textarea
 						className={cn(
 							'w-full p-4 rounded-lg border-2 bg-slate-500 border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300',
@@ -67,32 +80,36 @@ export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 						placeholder="Leave a comment..."
 						{...register('comment')}
 					/>
-					<p className="text-red-500 h-10">{errors.comment?.message}</p>
+					<p className="h-10 text-red-500">{errors.comment?.message}</p>
 					<Button
 						disabled={!isValid}
 						type="submit"
-						className="bg-slate-500 text-white hover:bg-slate-600"
+						className="text-white bg-slate-500 hover:bg-slate-600"
 					>
 						Submit
 					</Button>
 				</form>
 			)}
-			{data?.length ? (
+
+			{/* Відображення коментарів */}
+			{filteredComments?.length ? (
 				<ul className="space-y-4">
-					{data?.map((comment: Comment) => (
+					{filteredComments.map((comment: Comment) => (
 						<CommentItem
 							key={comment.id}
-							id={comment.id}
-							author={comment.author}
-							content={comment.content}
-							createdAt={comment.createdAt}
-							updatedAt={comment.updatedAt}
-							handleUpdate={() => mutate()}
+							articleId={articleId}
+							id={comment.id} // Додаємо id коментаря
+							author={comment.author} // Передаємо автора коментаря
+							content={comment.content} // Передаємо контент коментаря
+							createdAt={comment.createdAt} // Передаємо дату створення
+							updatedAt={comment.updatedAt} // Передаємо дату оновлення
+							replies={comment.replies} // Передаємо вкладені коментарі, якщо є
+							handleUpdate={mutate} // Використовуємо mutate для оновлення після змін
 						/>
 					))}
 				</ul>
 			) : (
-				<p className="text-center text-gray-500 mt-4 text-lg font-bold">
+				<p className="mt-4 text-lg font-bold text-center text-gray-500">
 					No comments yet
 				</p>
 			)}
