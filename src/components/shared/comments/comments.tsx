@@ -18,7 +18,6 @@ const fetcher = async (articleId: string) => {
 
 interface CommentFormValue {
 	comment: string;
-	parentId?: string;
 }
 
 const validationSchema = Yup.object({
@@ -44,13 +43,10 @@ export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 		resolver: yupResolver(validationSchema),
 	});
 
-	const submitComment: SubmitHandler<CommentFormValue> = async (
-		data,
-		parentId?: string
-	) => {
+	const submitComment: SubmitHandler<CommentFormValue> = async (data) => {
 		if (accessToken) {
 			try {
-				await Api.createComment(articleId, { content: data.comment, parentId });
+				await Api.createComment(articleId, { content: data.comment });
 				mutate();
 				reset();
 			} catch (error) {
@@ -60,7 +56,7 @@ export const Comments: FC<{ articleId: string }> = ({ articleId }) => {
 	};
 
 	const filteredComments = comments?.filter(
-		(comment:Comment) => comment.parentId === null
+		(comment: Comment) => comment.parentId === null
 	);
 
 	return (
