@@ -79,7 +79,7 @@ export const SectionPersonalProjects = () => {
 							<Link
 								href={work.href}
 								target="_blank"
-								className="relative flex items-center w-full h-full overflow-hidden text-xl pl-7"
+								className="relative flex items-center w-full h-full overflow-hidden text-xl px-7 text-center"
 							>
 								<div className="absolute -left-[70%]  -bottom-[80%] group:hover:-left-[105%] group-hover:-bottom-[110%] rotate-45 bg-white bg-opacity-50 w-52 h-52 transition-all"></div>
 								<div className="absolute -right-[60%] -bottom-[70%] group:hover:-right-[105%] group-hover:-bottom-[110%] rotate-45 bg-slate-600 w-52 h-52 opacity-50 transition-all"></div>
