@@ -46,7 +46,7 @@ export function ProfileDropdown() {
 		<BetaLabel>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant={null} size="icon">
+					<Button variant={null} size="icon" className='focus:outline-none focus-visible:ring-0'>
 						{authStore.accessToken ? (
 							<div className="flex items-center gap-2 text-sm font-medium text-black dark:text-white">
 								<User className="text-black dark:text-white" />

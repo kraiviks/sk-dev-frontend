@@ -70,7 +70,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 				</div>
 
 				<div className="flex items-center justify-center gap-3">
-					<div className="hidden gap-3 justify-center items-center min-w-[200px] sm:flex">
+					<div className="hidden gap-3 justify-center items-center sm:flex mr-10">
 						<ModeToggle />
 						<ProfileDropdown />
 					</div>
