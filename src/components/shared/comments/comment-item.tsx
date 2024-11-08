@@ -34,6 +34,7 @@ const CommentItem: FC<CommentItemProps> = ({
 	handleUpdate,
 }) => {
 	const user = useUser().user;
+
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 	const [editing, setEditing] = useState(false);
 	const [comment, setComment] = useState(content);
@@ -129,7 +130,7 @@ const CommentItem: FC<CommentItemProps> = ({
 				)}
 				<Delete type="comment" id={id} authorId={author.id} />
 			</div>
-			{author.id !== user?.id && (
+			{user?.id && author.id !== user.id && (
 				<>
 					{/* Reply button */}
 					<div
